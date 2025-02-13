@@ -1,0 +1,47 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/maaladina/typescript-project-81/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/maaladina/typescript-project-81/actions)",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "start:dev": "npx nodemon",
+    "start:dev-experimental": "node --watch --loader=ts-node/esm ./src/index.ts",
+    "start": "npm run build && node dist/index.js",
+    "exec": "npx ts-node ./src/index.ts",
+    "lint": "npx eslint .",
+    "test": "vitest",
+    "test-coverage": "npx vitest run --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maaladina/typescript-project-81.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maaladina/typescript-project-81/issues"
+  },
+  "homepage": "https://github.com/maaladina/typescript-project-81#readme",
+  "devDependencies": {
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^22.13.1",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "@vitest/coverage-v8": "^3.0.5",
+    "eslint": "^9.20.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.15.1",
+    "eslint-plugin-promise": "^7.2.1",
+    "nodemon": "^3.1.9",
+    "npm-check-updates": "^17.1.14",
+    "rimraf": "^6.0.1",
+    "simple-git-hooks": "^2.11.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
