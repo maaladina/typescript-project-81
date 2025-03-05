@@ -3,9 +3,9 @@ type Attrs = { [key: string]: string | boolean };
 const singleTags = ['img', 'input', 'br', 'hr', 'link', 'meta', 'area', 'base', 'basefont', 'col', 'command', 'embed', 'isindex', 'keygen', 'param', 'source', 'track', 'wbr']
 
 class Tag {
-    constructor(public tagName: string, public attrs: Attrs = {}, public children: string = '') { }
+    constructor(public tagName: string, public attrs: Attrs = {}, public children: string | Tag = '') { }
 
-    toString() {
+    toString(): string {
         const isSingleTag = singleTags.includes(this.tagName);
         const attrsEntries = Object.entries(this.attrs);
         const attrStr = attrsEntries.length === 0 ? '' : ` ${attrsEntries
@@ -14,7 +14,7 @@ class Tag {
                 return `${key}="${value}"`;
             })
             .join(' ')}`;
-        return isSingleTag ? `<${this.tagName}${attrStr}>` : `<${this.tagName}${attrStr}>${this.children}</${this.tagName}>`;
+        return isSingleTag ? `<${this.tagName}${attrStr}>` : `<${this.tagName}${attrStr}>${this.children.toString()}</${this.tagName}>`;
     }
 }
 
