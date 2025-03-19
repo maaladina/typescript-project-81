@@ -18,7 +18,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: install missing deps
+        run: npm ci --legacy-peer-deps
+
       - name: Hexlet project check
         uses: hexlet/project-action@release
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
+
+      - name: coverage generation
+        run: npm run test-coverage
+
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v9.0.0
+        env:
+          CC_TEST_REPORTER_ID: edda4aad0ea5c5fdc44df7a246b6bcc6d75bee63a87d2de753e67ceb6f357abd
+        with:
+          debug: true
